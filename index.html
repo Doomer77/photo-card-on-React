@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo card</title>
+</head>
+<body>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <div class="root"></div>
+
+    <script type="text/babel">
+
+        //LabelCard
+        class LabelCard extends React.Component {
+            render () {
+                let LabelCard = {
+                    fontFamily: 'Arial',
+                    position: 'absolute',
+                    bottom: -5,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    color: '#033',
+                    fontSize: '2rem'
+                }
+                
+                return (
+                    <div>
+                       <p style = { LabelCard }>Котик</p> 
+                    </div>
+                )
+            }
+        }
+
+        //PhotoCard
+        class ImageCard extends React.Component {
+            render () {
+
+                let ImageCardStyle = {
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    borderRadius: '2rem 2rem 0 0',
+                    filter: 'brightness(120%)'
+                }
+
+                return (
+                    <div>
+                        <img src="img/s1200.jfif" alt="Котик" style = { ImageCardStyle }/>
+                    </div>
+                )
+            }
+        }
+
+        //Card Component
+        class PhotoCard extends React.Component {
+            render () {
+                let PhotoCardStyle = {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    width: 250,
+                    height: 400,
+                    backgroundColor: '#fcc',
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    borderRadius: '2rem',
+                    boxShadow: '0 0 1rem 0.5rem rgba(0, 0, 0, .3)'
+                }
+
+                return (
+                    <div style = { PhotoCardStyle }>
+                        <ImageCard />
+                        <LabelCard />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render (
+            <div>
+                < PhotoCard />
+            </div>,
+            document.querySelector('.root')
+        )
+        
+    </script>
+</body>
+</html>
